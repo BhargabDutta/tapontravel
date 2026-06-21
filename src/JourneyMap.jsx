@@ -13,7 +13,7 @@ const C = {
   line: "rgba(255,255,255,0.09)", glass: "rgba(13,18,28,0.86)",
   view: "#37C2B5", stay: "#9B7BFF", food: "#FF8A3D",
 };
-const W = 1600, H = 1120;
+const W = 1200, H = 840;
 
 const STOPS = [
   { name: "Bagdogra / NJP", short: "Bagdogra", tag: "Arrival", day: "Day 1", elevation: "130 m", drive: "—", coord: "26.68°N 88.32°E", p: [320, 980], theme: "gateway", grad: ["#7FA8C9", "#E9D8B0"],
@@ -54,38 +54,38 @@ function catmullRom(points, closed = false) {
   for (let i = 0; i < (closed ? n : n - 1); i++) { const p0 = get(i - 1), p1 = get(i), p2 = get(i + 1), p3 = get(i + 2); d += ` C ${p1.x + (p2.x - p0.x) / 6} ${p1.y + (p2.y - p0.y) / 6} ${p2.x - (p3.x - p1.x) / 6} ${p2.y - (p3.y - p1.y) / 6} ${p2.x} ${p2.y}`; }
   return d + (closed ? " Z" : "");
 }
-function rng(seed) { let s = seed % 2147483647; if (s <= 0) s += 2147483646; return () => (s = (s * 16807) % 2147483647) / 2147483647; }
+// function rng(seed) { let s = seed % 2147483647; if (s <= 0) s += 2147483646; return () => (s = (s * 16807) % 2147483647) / 2147483647; }
 function ease(t) { return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; }
 const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
 
-function buildRelief() {
-  const masses = [
-    [300, 200, 320, 5, 1, 0.85], [640, 150, 380, 6, 1, 0.8], [1010, 190, 340, 5, 1, 0.78], [1360, 240, 300, 5, 1, 0.72],
-    [170, 520, 250, 4, 0, 0.35], [840, 460, 320, 5, 0, 0.4], [1160, 430, 280, 4, 0, 0.36], [1460, 580, 280, 4, 0, 0.3],
-    [430, 780, 240, 4, 0, 0.18], [720, 950, 230, 3, 0, 0.1], [1080, 900, 260, 4, 0, 0.16], [1360, 920, 240, 3, 0, 0.12],
-    [120, 940, 230, 3, 0, 0.08], [1520, 340, 220, 4, 1, 0.65],
-  ];
-  const blobs = [], contours = [];
-  masses.forEach((m, mi) => {
-    const [cx, cy, R, rings, snow, haze] = m;
-    const r = rng(mi * 911 + 17); const ph1 = r() * 6.283, ph2 = r() * 6.283; const k1 = 3 + Math.floor(r() * 2), k2 = 5 + Math.floor(r() * 2);
-    const ringPath = (rr) => { const pts = []; for (let a = 0; a < 6.283; a += 0.32) { const wob = 1 + 0.15 * Math.sin(a * k1 + ph1) + 0.09 * Math.sin(a * k2 + ph2); pts.push([cx + Math.cos(a) * rr * wob, cy + Math.sin(a) * rr * wob * 0.82]); } return catmullRom(pts, true); };
-    const core = snow ? "rgba(206,222,238," : haze > 0.5 ? "rgba(120,150,192," : "rgba(86,140,104,";
-    blobs.push({ d: ringPath(R), id: `b${mi}`, core });
-    for (let ring = 1; ring < rings; ring++) { const t = ring / (rings - 1); const op = (0.05 + t * 0.1) * (1 - haze * 0.3); let stroke = `rgba(190,210,225,${op.toFixed(3)})`; if (snow && t > 0.55) stroke = `rgba(235,243,250,${(0.16 + t * 0.26).toFixed(3)})`; contours.push({ d: ringPath(R * (1 - ring / (rings + 0.5))), stroke, w: 1 + t * 0.5 }); }
-  });
-  const rivers = [
-    catmullRom([[330, 1100], [380, 980], [430, 870], [520, 810], [560, 720], [640, 640]]),
-    catmullRom([[1260, 1110], [1180, 980], [1110, 850], [1030, 750], [970, 640], [900, 520]]),
-    catmullRom([[40, 700], [180, 720], [340, 760], [480, 800], [640, 840]]),
-  ];
-  const lakes = [
-    { d: catmullRom([[760, 318], [800, 300], [846, 312], [858, 348], [820, 372], [772, 358]], true) },
-    { d: catmullRom([[612, 556], [648, 548], [672, 566], [664, 596], [628, 602], [606, 582]], true) },
-  ];
-  return { blobs, contours, rivers, lakes };
-}
-const RELIEF = buildRelief();
+// function buildRelief() {
+//   const masses = [
+//     [300, 200, 320, 5, 1, 0.85], [640, 150, 380, 6, 1, 0.8], [1010, 190, 340, 5, 1, 0.78], [1360, 240, 300, 5, 1, 0.72],
+//     [170, 520, 250, 4, 0, 0.35], [840, 460, 320, 5, 0, 0.4], [1160, 430, 280, 4, 0, 0.36], [1460, 580, 280, 4, 0, 0.3],
+//     [430, 780, 240, 4, 0, 0.18], [720, 950, 230, 3, 0, 0.1], [1080, 900, 260, 4, 0, 0.16], [1360, 920, 240, 3, 0, 0.12],
+//     [120, 940, 230, 3, 0, 0.08], [1520, 340, 220, 4, 1, 0.65],
+//   ];
+//   const blobs = [], contours = [];
+//   masses.forEach((m, mi) => {
+//     const [cx, cy, R, rings, snow, haze] = m;
+//     const r = rng(mi * 911 + 17); const ph1 = r() * 6.283, ph2 = r() * 6.283; const k1 = 3 + Math.floor(r() * 2), k2 = 5 + Math.floor(r() * 2);
+//     const ringPath = (rr) => { const pts = []; for (let a = 0; a < 6.283; a += 0.32) { const wob = 1 + 0.15 * Math.sin(a * k1 + ph1) + 0.09 * Math.sin(a * k2 + ph2); pts.push([cx + Math.cos(a) * rr * wob, cy + Math.sin(a) * rr * wob * 0.82]); } return catmullRom(pts, true); };
+//     const core = snow ? "rgba(206,222,238," : haze > 0.5 ? "rgba(120,150,192," : "rgba(86,140,104,";
+//     blobs.push({ d: ringPath(R), id: `b${mi}`, core });
+//     for (let ring = 1; ring < rings; ring++) { const t = ring / (rings - 1); const op = (0.05 + t * 0.1) * (1 - haze * 0.3); let stroke = `rgba(190,210,225,${op.toFixed(3)})`; if (snow && t > 0.55) stroke = `rgba(235,243,250,${(0.16 + t * 0.26).toFixed(3)})`; contours.push({ d: ringPath(R * (1 - ring / (rings + 0.5))), stroke, w: 1 + t * 0.5 }); }
+//   });
+//   const rivers = [
+//     catmullRom([[330, 1100], [380, 980], [430, 870], [520, 810], [560, 720], [640, 640]]),
+//     catmullRom([[1260, 1110], [1180, 980], [1110, 850], [1030, 750], [970, 640], [900, 520]]),
+//     catmullRom([[40, 700], [180, 720], [340, 760], [480, 800], [640, 840]]),
+//   ];
+//   const lakes = [
+//     { d: catmullRom([[760, 318], [800, 300], [846, 312], [858, 348], [820, 372], [772, 358]], true) },
+//     { d: catmullRom([[612, 556], [648, 548], [672, 566], [664, 596], [628, 602], [606, 582]], true) },
+//   ];
+//   return { blobs, contours, rivers, lakes };
+// }
+// const RELIEF = buildRelief();
 const ROUTE_D = catmullRom(STOPS.map((s) => s.p), false);
 
 /* ================ 360° PANORAMA ================ */
@@ -332,27 +332,92 @@ useEffect(() => {
     <div ref={wrapRef} style={{ position: "relative", width: "100%", height: "100dvh", minHeight: 560, overflow: "hidden", background: C.bg0, fontFamily: "'SF Pro Display',-apple-system,system-ui,'Segoe UI',sans-serif", color: C.text, userSelect: "none", WebkitTapHighlightColor: "transparent", touchAction: "none" }}>
       <style>{CSS}</style>
 
-      {/* MAP WORLD */}
-      <div ref={worldRef} style={{ position: "absolute", left: 0, top: 0, width: W, height: H, transformOrigin: "0 0", willChange: "transform", pointerEvents: "none" }}>
-        <svg width={W} height={H} viewBox={`0 0 ${W} ${H}`} style={{ display: "block" }}>
-          <defs>
-            <linearGradient id="mapBase" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stopColor="#1c2d49" /><stop offset="42%" stopColor="#14302b" /><stop offset="100%" stopColor="#0e2018" /></linearGradient>
-            <filter id="soft"><feGaussianBlur stdDeviation="26" /></filter>
-            <filter id="routeGlow" x="-30%" y="-30%" width="160%" height="160%"><feGaussianBlur stdDeviation="5" result="b" /><feMerge><feMergeNode in="b" /><feMergeNode in="SourceGraphic" /></feMerge></filter>
-            <radialGradient id="vign" cx="50%" cy="46%" r="72%"><stop offset="55%" stopColor="rgba(0,0,0,0)" /><stop offset="100%" stopColor="rgba(0,0,0,0.5)" /></radialGradient>
-            {RELIEF.blobs.map((b) => <radialGradient key={b.id} id={b.id} cx="42%" cy="36%" r="62%"><stop offset="0%" stopColor={b.core + "0.55)"} /><stop offset="60%" stopColor={b.core + "0.18)"} /><stop offset="100%" stopColor={b.core + "0)"} /></radialGradient>)}
-            <linearGradient id="routeProg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stopColor={C.gold} /><stop offset="100%" stopColor={C.red} /></linearGradient>
-          </defs>
-          <rect x="0" y="0" width={W} height={H} fill="url(#mapBase)" />
-          <g filter="url(#soft)">{RELIEF.blobs.map((b) => <path key={"bl" + b.id} d={b.d} fill={`url(#${b.id})`} />)}</g>
-          {RELIEF.rivers.map((d, i) => <path key={"r" + i} d={d} fill="none" stroke="rgba(120,175,205,0.22)" strokeWidth="3" strokeLinecap="round" />)}
-          {RELIEF.lakes.map((l, i) => <path key={"l" + i} d={l.d} fill="rgba(96,150,180,0.45)" stroke="rgba(160,200,220,0.4)" strokeWidth="1.2" />)}
-          <g>{RELIEF.contours.map((c, i) => <path key={"c" + i} d={c.d} fill="none" stroke={c.stroke} strokeWidth={c.w} />)}</g>
-          <path ref={baseRef} d={ROUTE_D} fill="none" stroke="rgba(246,194,84,0.30)" strokeWidth="5" strokeLinecap="round" />
-          <path ref={progRef} d={ROUTE_D} fill="none" stroke="url(#routeProg)" strokeWidth="5.5" strokeLinecap="round" filter="url(#routeGlow)" />
-          <rect x="0" y="0" width={W} height={H} fill="url(#vign)" pointerEvents="none" />
-        </svg>
-      </div>
+{/* MAP WORLD */}
+<div
+  ref={worldRef}
+  style={{
+    position: "absolute",
+    left: 0,
+    top: 0,
+    width: W,
+    height: H,
+    transformOrigin: "0 0",
+    willChange: "transform",
+    pointerEvents: "none",
+  }}
+>
+
+  <img
+    src="/maps/hill-terrain-map.png"
+    alt=""
+    draggable={false}
+    style={{
+      position: "absolute",
+      inset: 0,
+      width: "100%",
+      height: "100%",
+      objectFit: "cover",
+      userSelect: "none",
+      pointerEvents: "none",
+    }}
+  />
+
+  <svg
+    width={W}
+    height={H}
+    viewBox={`0 0 ${W} ${H}`}
+    style={{
+      position: "absolute",
+      inset: 0,
+    }}
+  >
+    <defs>
+      <filter
+        id="routeGlow"
+        x="-30%"
+        y="-30%"
+        width="160%"
+        height="160%"
+      >
+        <feGaussianBlur stdDeviation="5" result="b" />
+        <feMerge>
+          <feMergeNode in="b" />
+          <feMergeNode in="SourceGraphic" />
+        </feMerge>
+      </filter>
+
+      <linearGradient
+        id="routeProg"
+        x1="0"
+        y1="0"
+        x2="1"
+        y2="1"
+      >
+        <stop offset="0%" stopColor={C.gold} />
+        <stop offset="100%" stopColor={C.red} />
+      </linearGradient>
+    </defs>
+
+    <path
+      ref={baseRef}
+      d={ROUTE_D}
+      fill="none"
+      stroke="rgba(246,194,84,0.25)"
+      strokeWidth="5"
+      strokeLinecap="round"
+    />
+
+    <path
+      ref={progRef}
+      d={ROUTE_D}
+      fill="none"
+      stroke="url(#routeProg)"
+      strokeWidth="6"
+      strokeLinecap="round"
+      filter="url(#routeGlow)"
+    />
+  </svg>
+</div>
 
       {/* MAP INPUT (pan / zoom / pinch) */}
       <div ref={inputRef} style={{ position: "absolute", inset: 0, zIndex: 2, cursor: "grab", touchAction: "none" }} />
