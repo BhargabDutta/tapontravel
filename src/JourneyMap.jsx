@@ -13,7 +13,7 @@ const C = {
   line: "rgba(255,255,255,0.09)", glass: "rgba(13,18,28,0.86)",
   view: "#37C2B5", stay: "#9B7BFF", food: "#FF8A3D",
 };
-const W = 1200, H = 840;
+const W = 2000, H = 2000;
 
 const STOPS = [
   { name: "Bagdogra / NJP", short: "Bagdogra", tag: "Arrival", day: "Day 1", elevation: "130 m", drive: "—", coord: "26.68°N 88.32°E", p: [320, 980], theme: "gateway", grad: ["#7FA8C9", "#E9D8B0"],
@@ -216,7 +216,7 @@ export default function JourneyMap() {
     const vw = getVW(), vh = getVH(); setCompact(vw < 760);
     const cover = Math.max(vw / W, vh / H); minSRef.current = cover;
     let s = camRef.current.s; if (!s || s < cover) s = Math.max(cover * 1.04, Math.min(2.2, vw / 740));
-    camRef.current.s = clamp(s, cover, cover * 3.2);
+    camRef.current.s = clamp(s, cover * 0.5, cover * 3.2);
     if (recenter) centerOn(STOPS[idxRef.current].p[0], STOPS[idxRef.current].p[1]); else applyTransform();
   };
 
@@ -306,7 +306,14 @@ useEffect(() => {
       else if (pan) { camRef.current.tx = pan.tx + (e.clientX - pan.x); camRef.current.ty = pan.ty + (e.clientY - pan.y); applyTransform(); }
     };
     const up = (e) => { pts.delete(e.pointerId); if (pts.size < 2) pinch = null; if (pts.size === 1) { const a = [...pts.values()][0]; pan = { x: a.x, y: a.y, tx: camRef.current.tx, ty: camRef.current.ty }; } if (pts.size === 0) pan = null; };
-    const wheel = (e) => { e.preventDefault(); if (travelingRef.current) return; const rect = wrapRef.current.getBoundingClientRect(); const cx = e.clientX - rect.left, cy = e.clientY - rect.top; const oldS = camRef.current.s; const ns = clamp(oldS * (1 - e.deltaY * 0.0014), minSRef.current, minSRef.current * 3.2); camRef.current.tx = cx - ((cx - camRef.current.tx) / oldS) * ns; camRef.current.ty = cy - ((cy - camRef.current.ty) / oldS) * ns; camRef.current.s = ns; applyTransform(); };
+    const wheel = (e) => { e.preventDefault(); if (travelingRef.current) return; const rect = wrapRef.current.getBoundingClientRect(); const cx = e.clientX - rect.left, cy = e.clientY - rect.top; const oldS = camRef.current.s; 
+   const ns = clamp(
+  oldS * (1 - e.deltaY * 0.0014),
+  minSRef.current * 0.5,
+  minSRef.current * 3.2
+);
+      
+        camRef.current.tx = cx - ((cx - camRef.current.tx) / oldS) * ns; camRef.current.ty = cy - ((cy - camRef.current.ty) / oldS) * ns; camRef.current.s = ns; applyTransform(); };
     el.addEventListener("pointerdown", down); el.addEventListener("pointermove", move); el.addEventListener("pointerup", up); el.addEventListener("pointercancel", up); el.addEventListener("wheel", wheel, { passive: false });
     return () => { el.removeEventListener("pointerdown", down); el.removeEventListener("pointermove", move); el.removeEventListener("pointerup", up); el.removeEventListener("pointercancel", up); el.removeEventListener("wheel", wheel); };
   }, []);
@@ -481,7 +488,13 @@ useEffect(() => {
       {!pano && (
         <div style={{ position: "absolute", zIndex: 19, right: compact ? 12 : 22, top: compact ? 92 : "auto", bottom: compact ? "auto" : 110, display: "flex", flexDirection: "column", gap: 8 }}>
           <button className="tot-btn" style={mapBtn} onClick={() => { const c = camRef.current; const ns = clamp(c.s * 1.3, minSRef.current, minSRef.current * 3.2); const vw = getVW(), vh = getVH(); c.tx = vw / 2 - ((vw / 2 - c.tx) / c.s) * ns; c.ty = vh / 2 - ((vh / 2 - c.ty) / c.s) * ns; c.s = ns; applyTransform(); }}><Plus size={18} /></button>
-          <button className="tot-btn" style={mapBtn} onClick={() => { const c = camRef.current; const ns = clamp(c.s / 1.3, minSRef.current, minSRef.current * 3.2); const vw = getVW(), vh = getVH(); c.tx = vw / 2 - ((vw / 2 - c.tx) / c.s) * ns; c.ty = vh / 2 - ((vh / 2 - c.ty) / c.s) * ns; c.s = ns; applyTransform(); }}><Minus size={18} /></button>
+          <button className="tot-btn" style={mapBtn} onClick={() => { const c = camRef.current; 
+const ns = clamp(
+  c.s / 1.3,
+  minSRef.current * 0.5,
+  minSRef.current * 3.2
+);
+          const vw = getVW(), vh = getVH(); c.tx = vw / 2 - ((vw / 2 - c.tx) / c.s) * ns; c.ty = vh / 2 - ((vh / 2 - c.ty) / c.s) * ns; c.s = ns; applyTransform(); }}><Minus size={18} /></button>
           <button className="tot-btn" style={mapBtn} onClick={recenter} title="Recenter"><Crosshair size={17} /></button>
         </div>
       )}
