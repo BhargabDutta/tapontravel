@@ -16,25 +16,25 @@ const C = {
 const W = 2000, H = 2000;
 
 const STOPS = [
-  { name: "Bagdogra / NJP", short: "Bagdogra", tag: "Arrival", day: "Day 1", elevation: "130 m", drive: "—", coord: "26.68°N 88.32°E", p: [320, 980], theme: "gateway", grad: ["#7FA8C9", "#E9D8B0"],
+  { name: "Bagdogra / NJP", short: "Bagdogra",image: "/stops/bagdogra.jpg",panorama: "/panorama/pano1.jpg", tag: "Arrival", day: "Day 1", elevation: "130 m", drive: "—", coord: "26.68°N 88.32°E", p: [320, 980], theme: "gateway", grad: ["#7FA8C9", "#E9D8B0"],
     blurb: "The gateway to the hills. Land at Bagdogra and ride beside the Teesta as the plains fold into the first Himalayan ridges, climbing toward Gangtok.",
     highlights: ["Teesta River drive", "Namgyal Institute of Tibetology", "Do Drul Chorten", "MG Marg by night"] },
-  { name: "Gangtok", short: "Gangtok", tag: "Sikkim · 2N", day: "Day 2", elevation: "1,650 m", drive: "4.5 h", coord: "27.33°N 88.61°E", p: [560, 600], theme: "town", grad: ["#27406B", "#D59A6E"],
+  { name: "Gangtok", short: "Gangtok",image: "/stops/gangtok.jpg",panorama: "/panorama/gangtok-360.jpg", tag: "Sikkim · 2N", day: "Day 2", elevation: "1,650 m", drive: "4.5 h", coord: "27.33°N 88.61°E", p: [560, 600], theme: "town", grad: ["#27406B", "#D59A6E"],
     blurb: "Sikkim's capital, draped over a ridge. Today climbs to glacial Tsomgo Lake and Baba Mandir near the border, with an optional run up to Nathula Pass.",
     highlights: ["Tsomgo Lake", "Baba Harbhajan Singh Mandir", "Nathula Pass (permit)", "MG Marg cafés"] },
-  { name: "Namchi / Ravangla", short: "Namchi", tag: "South Sikkim", day: "Day 3", elevation: "2,100 m", drive: "3.5 h", coord: "27.17°N 88.35°E", p: [830, 760], theme: "monastery", grad: ["#3A5E8C", "#F0C98E"],
+  { name: "Namchi / Ravangla", short: "Namchi",image: "/stops/namchi.jpg",panorama: "/panorama/pano2.jpg", tag: "South Sikkim", day: "Day 3", elevation: "2,100 m", drive: "3.5 h", coord: "27.17°N 88.35°E", p: [830, 760], theme: "monastery", grad: ["#3A5E8C", "#F0C98E"],
     blurb: "Quiet South Sikkim. Wander the Temi tea slopes and the serene Buddha Park at Ravangla, then Char Dham crowned by the statue on Samdruptse Hill.",
     highlights: ["Temi Tea Garden", "Buddha Park, Ravangla", "Char Dham", "Samdruptse statue"] },
-  { name: "Kalimpong", short: "Kalimpong", tag: "North Bengal · 1N", day: "Day 4–5", elevation: "1,250 m", drive: "3.5 h", coord: "27.06°N 88.47°E", p: [1130, 620], theme: "hills", grad: ["#7FA8C0", "#CFE0CE"],
+  { name: "Kalimpong", short: "Kalimpong",image: "/stops/kalimpong.jpg",panorama: "/panorama/pano3.jpg", tag: "North Bengal · 1N", day: "Day 4–5", elevation: "1,250 m", drive: "3.5 h", coord: "27.06°N 88.47°E", p: [1130, 620], theme: "hills", grad: ["#7FA8C0", "#CFE0CE"],
     blurb: "A calmer hill town of monasteries and nurseries. Durpin Monastery's valley views, the climb up Deolo Hill, and one of the region's great cactus collections.",
     highlights: ["Durpin Monastery", "Deolo Hill", "Cactus Nursery", "Easy evening"] },
-  { name: "Darjeeling", short: "Darjeeling", tag: "North Bengal · 2N", day: "Day 6", elevation: "2,042 m", drive: "2.5 h", coord: "27.04°N 88.26°E", p: [1240, 320], theme: "peaks", grad: ["#16335E", "#FF9E6B"],
+  { name: "Darjeeling", short: "Darjeeling",image: "/stops/darjeeling.jpg",panorama: "/panorama/pano4.jpg", tag: "North Bengal · 2N", day: "Day 6", elevation: "2,042 m", drive: "2.5 h", coord: "27.04°N 88.26°E", p: [1240, 320], theme: "peaks", grad: ["#16335E", "#FF9E6B"],
     blurb: "The Queen of the Hills. Sunrise over Kanchenjunga from Tiger Hill, the heritage Toy Train through Batasia Loop, and tea on Chowrasta.",
     highlights: ["Tiger Hill sunrise", "Darjeeling Toy Train", "Batasia Loop", "Japanese Peace Pagoda"] },
-  { name: "Mirik", short: "Mirik", tag: "Lakeside", day: "Day 7", elevation: "1,767 m", drive: "1.5 h", coord: "26.88°N 88.18°E", p: [800, 300], theme: "lake", grad: ["#5E94B8", "#CFE3DC"],
+  { name: "Mirik", short: "Mirik",image: "/stops/mirik.jpg",panorama: "/panorama/pano1.jpg", tag: "Lakeside", day: "Day 7", elevation: "1,767 m", drive: "1.5 h", coord: "26.88°N 88.18°E", p: [800, 300], theme: "lake", grad: ["#5E94B8", "#CFE3DC"],
     blurb: "A pine-rimmed lake on the way down. A slow walk along the water and an optional boat ride at Mirik Lake before the descent to the plains.",
     highlights: ["Mirik Lake", "Lakeside walk", "Boating (optional)", "Tea gardens"] },
-  { name: "Bagdogra / NJP", short: "Bagdogra", tag: "Departure", day: "Day 7", elevation: "130 m", drive: "1.5 h", coord: "26.68°N 88.32°E", p: [430, 560], theme: "gateway", grad: ["#7FA8C9", "#E9D8B0"],
+  { name: "Bagdogra / NJP", short: "Bagdogra",image: "/stops/bagdogra.jpg", panorama: "/panorama/gangtok-360.jpg",tag: "Departure", day: "Day 7", elevation: "130 m", drive: "1.5 h", coord: "26.68°N 88.32°E", p: [430, 560], theme: "gateway", grad: ["#7FA8C9", "#E9D8B0"],
     blurb: "The road folds back to the plains. Continue to Bagdogra or NJP for the onward journey — the mountains behind you, the memories packed.",
     highlights: ["Descent to plains", "Onward transfer", "Beautiful memories", "Until next time"] },
 ];
@@ -44,6 +44,152 @@ const POI_DEFS = [
   { f: 0.42, type: "view", label: "Buddha Park" }, { f: 0.58, type: "food", label: "Hillside kitchen" },
   { f: 0.74, type: "view", label: "Tiger Hill" }, { f: 0.88, type: "stay", label: "Mirik lodge" },
 ];
+
+const STOP_POI_DETAILS = {
+  Bagdogra: [
+    {
+      id: "photo",
+      icon: "/stops/photo-camera.png",
+      title: "Airport Arrival Point",
+      description: "Perfect spot for your first trip photo after landing.",
+      images: ["/stops/bagdogra.jpg"],
+    },
+    {
+      id: "food",
+      icon: "/stops/cutlery.png",
+      title: "Airport Food Court",
+      description: "Quick meals, coffee and snacks before heading to the hills.",
+      images: ["/stops/food3.jpg"],
+    },
+    {
+      id: "washroom",
+      icon: "/stops/restroom.png",
+      title: "Terminal Washroom",
+      description: "Clean washroom facility available inside the terminal.",
+      images: ["/stops/washroom3.jpg"],
+    },
+  ],
+
+  Gangtok: [
+    {
+      id: "food",
+      icon: "/stops/cutlery.png",
+      title: "MG Marg Restaurant",
+      description: "Popular local restaurant serving Tibetan and Sikkimese food.",
+      images: ["/stops/food1.jpg"],
+    },
+    {
+      id: "photo",
+      icon: "/stops/photo-camera.png",
+      title: "Tsomgo Lake Viewpoint",
+      description: "One of the most scenic photography locations in Sikkim.",
+      images: ["/stops/gangtok.jpg"],
+    },
+    {
+      id: "stay",
+      icon: "/stops/home.png",
+      title: "Gangtok Hotel",
+      description: "Your overnight stay with beautiful mountain views.",
+      images: ["/stops/stay1.jpg"],
+    },
+  ],
+
+  Namchi: [
+    {
+      id: "photo",
+      icon: "/stops/photo-camera.png",
+      title: "Buddha Park",
+      description: "Iconic giant Buddha statue and landscaped gardens.",
+      images: ["/stops/namchi.jpg"],
+    },
+    {
+      id: "food",
+      icon: "/stops/cutlery.png",
+      title: "South Sikkim Kitchen",
+      description: "Local cuisine and traditional Sikkimese dishes.",
+      images: ["/stops/food2.jpg"],
+    },
+    {
+      id: "washroom",
+      icon: "/stops/restroom.png",
+      title: "Tourist Washroom",
+      description: "Public washroom near the main tourist area.",
+      images: ["/stops/washroom2.jpg"],
+    },
+  ],
+
+  Kalimpong: [
+    {
+      id: "stay",
+      icon: "/stops/home.png",
+      title: "Hill View Resort",
+      description: "Comfortable stay overlooking the valleys of Kalimpong.",
+      images: ["/stops/stay3.jpg"],
+    },
+    {
+      id: "photo",
+      icon: "/stops/photo-camera.png",
+      title: "Deolo Hill",
+      description: "Best panoramic viewpoint in Kalimpong.",
+      images: ["/stops/kalimpong.jpg"],
+    },
+    {
+      id: "food",
+      icon: "/stops/cutlery.png",
+      title: "Mountain Café",
+      description: "Popular stop for tea, snacks and local cuisine.",
+      images: ["/stops/food3.jpg"],
+    },
+  ],
+
+  Darjeeling: [
+    {
+      id: "photo",
+      icon: "/stops/photo-camera.png",
+      title: "Tiger Hill",
+      description: "Famous sunrise viewpoint overlooking Kanchenjunga.",
+      images: ["/stops/darjeeling-photo.jpg"],
+    },
+    {
+      id: "stay",
+      icon: "/stops/home.png",
+      title: "Heritage Hotel",
+      description: "Classic Darjeeling accommodation near Chowrasta.",
+      images: ["/stops/stay2.jpg"],
+    },
+    {
+      id: "food",
+      icon: "/stops/cutlery.png",
+      title: "Mall Road Restaurant",
+      description: "Local food and tea with stunning hill views.",
+      images: ["/stops/food1.jpg"],
+    },
+  ],
+
+  Mirik: [
+    {
+      id: "photo",
+      icon: "/stops/photo-camera.png",
+      title: "Mirik Lake",
+      description: "Beautiful lakeside photography location.",
+      images: ["/stops/mirik.jpg"],
+    },
+    {
+      id: "food",
+      icon: "/stops/cutlery.png",
+      title: "Lakeside Café",
+      description: "Tea, snacks and refreshments near the lake.",
+      images: ["/stops/food2.jpg"],
+    },
+    {
+      id: "washroom",
+      icon: "/stops/restroom.png",
+      title: "Tourist Facility",
+      description: "Public washroom near the lake entrance.",
+      images: ["/stops/washroom1.jpg"],
+    },
+  ],
+};
 const CAT = { view: C.view, stay: C.stay, food: C.food };
 
 function catmullRom(points, closed = false) {
@@ -57,35 +203,6 @@ function catmullRom(points, closed = false) {
 // function rng(seed) { let s = seed % 2147483647; if (s <= 0) s += 2147483646; return () => (s = (s * 16807) % 2147483647) / 2147483647; }
 function ease(t) { return t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2; }
 const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
-
-// function buildRelief() {
-//   const masses = [
-//     [300, 200, 320, 5, 1, 0.85], [640, 150, 380, 6, 1, 0.8], [1010, 190, 340, 5, 1, 0.78], [1360, 240, 300, 5, 1, 0.72],
-//     [170, 520, 250, 4, 0, 0.35], [840, 460, 320, 5, 0, 0.4], [1160, 430, 280, 4, 0, 0.36], [1460, 580, 280, 4, 0, 0.3],
-//     [430, 780, 240, 4, 0, 0.18], [720, 950, 230, 3, 0, 0.1], [1080, 900, 260, 4, 0, 0.16], [1360, 920, 240, 3, 0, 0.12],
-//     [120, 940, 230, 3, 0, 0.08], [1520, 340, 220, 4, 1, 0.65],
-//   ];
-//   const blobs = [], contours = [];
-//   masses.forEach((m, mi) => {
-//     const [cx, cy, R, rings, snow, haze] = m;
-//     const r = rng(mi * 911 + 17); const ph1 = r() * 6.283, ph2 = r() * 6.283; const k1 = 3 + Math.floor(r() * 2), k2 = 5 + Math.floor(r() * 2);
-//     const ringPath = (rr) => { const pts = []; for (let a = 0; a < 6.283; a += 0.32) { const wob = 1 + 0.15 * Math.sin(a * k1 + ph1) + 0.09 * Math.sin(a * k2 + ph2); pts.push([cx + Math.cos(a) * rr * wob, cy + Math.sin(a) * rr * wob * 0.82]); } return catmullRom(pts, true); };
-//     const core = snow ? "rgba(206,222,238," : haze > 0.5 ? "rgba(120,150,192," : "rgba(86,140,104,";
-//     blobs.push({ d: ringPath(R), id: `b${mi}`, core });
-//     for (let ring = 1; ring < rings; ring++) { const t = ring / (rings - 1); const op = (0.05 + t * 0.1) * (1 - haze * 0.3); let stroke = `rgba(190,210,225,${op.toFixed(3)})`; if (snow && t > 0.55) stroke = `rgba(235,243,250,${(0.16 + t * 0.26).toFixed(3)})`; contours.push({ d: ringPath(R * (1 - ring / (rings + 0.5))), stroke, w: 1 + t * 0.5 }); }
-//   });
-//   const rivers = [
-//     catmullRom([[330, 1100], [380, 980], [430, 870], [520, 810], [560, 720], [640, 640]]),
-//     catmullRom([[1260, 1110], [1180, 980], [1110, 850], [1030, 750], [970, 640], [900, 520]]),
-//     catmullRom([[40, 700], [180, 720], [340, 760], [480, 800], [640, 840]]),
-//   ];
-//   const lakes = [
-//     { d: catmullRom([[760, 318], [800, 300], [846, 312], [858, 348], [820, 372], [772, 358]], true) },
-//     { d: catmullRom([[612, 556], [648, 548], [672, 566], [664, 596], [628, 602], [606, 582]], true) },
-//   ];
-//   return { blobs, contours, rivers, lakes };
-// }
-// const RELIEF = buildRelief();
 const ROUTE_D = catmullRom(STOPS.map((s) => s.p), false);
 
 /* ================ 360° PANORAMA ================ */
@@ -122,14 +239,34 @@ function paintPanorama(theme) {
   const gr = x.getImageData(0, 0, Wp, Hp), dd = gr.data; for (let i = 0; i < dd.length; i += 4) { const n = (Math.random() - 0.5) * 14; dd[i] += n; dd[i + 1] += n; dd[i + 2] += n; } x.putImageData(gr, 0, 0);
   const tex = new THREE.CanvasTexture(cv); tex.minFilter = THREE.LinearFilter; return tex;
 }
-function PanoViewer({ open, theme, name, onClose }) {
+function PanoViewer({ open, theme, image, name, onClose }) {
   const ref = useRef(null), fovRef = useRef(74);
   useEffect(() => {
     if (!open || !ref.current) return;
     const mount = ref.current, reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const renderer = new THREE.WebGLRenderer({ antialias: true }); renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2)); renderer.setSize(mount.clientWidth, mount.clientHeight); renderer.domElement.style.cssText = "display:block;touch-action:none;cursor:grab;"; mount.appendChild(renderer.domElement);
-    const scene = new THREE.Scene(); const cam = new THREE.PerspectiveCamera(74, mount.clientWidth / mount.clientHeight, 0.1, 1000);
-    const sphere = new THREE.Mesh(new THREE.SphereGeometry(60, 64, 44), new THREE.MeshBasicMaterial({ side: THREE.BackSide, map: paintPanorama(theme) })); scene.add(sphere);
+ const scene = new THREE.Scene();
+
+const cam = new THREE.PerspectiveCamera(
+  74,
+  mount.clientWidth / mount.clientHeight,
+  0.1,
+  1000
+);
+
+const texture = new THREE.TextureLoader().load(image);
+
+const sphere = new THREE.Mesh(
+  new THREE.SphereGeometry(60, 64, 44),
+  new THREE.MeshBasicMaterial({
+    side: THREE.BackSide,
+    map: texture
+  })
+);
+
+scene.add(sphere);
+    
+
     let lon = -18, lat = 4, dragging = false, lx = 0, ly = 0; const t = new THREE.Vector3(); const dom = renderer.domElement;
     const down = (e) => { dragging = true; lx = e.clientX; ly = e.clientY; dom.style.cursor = "grabbing"; };
     const move = (e) => { if (!dragging) return; lon -= (e.clientX - lx) * 0.12; lat = Math.max(-78, Math.min(78, lat + (e.clientY - ly) * 0.12)); lx = e.clientX; ly = e.clientY; };
@@ -138,7 +275,9 @@ function PanoViewer({ open, theme, name, onClose }) {
     dom.addEventListener("pointerdown", down); window.addEventListener("pointermove", move); window.addEventListener("pointerup", up); dom.addEventListener("wheel", wheel, { passive: false });
     let raf; const loop = () => { raf = requestAnimationFrame(loop); if (!dragging && !reduce) lon += 0.03; cam.fov = fovRef.current; cam.updateProjectionMatrix(); const phi = THREE.MathUtils.degToRad(90 - lat), th = THREE.MathUtils.degToRad(lon); t.set(Math.sin(phi) * Math.cos(th), Math.cos(phi), Math.sin(phi) * Math.sin(th)); cam.lookAt(t); renderer.render(scene, cam); }; loop();
     const onResize = () => { renderer.setSize(mount.clientWidth, mount.clientHeight); cam.aspect = mount.clientWidth / mount.clientHeight; cam.updateProjectionMatrix(); }; window.addEventListener("resize", onResize); mount._api = { zoom: (d) => { fovRef.current = Math.max(40, Math.min(92, fovRef.current + d)); } };
-    return () => { cancelAnimationFrame(raf); window.removeEventListener("resize", onResize); window.removeEventListener("pointermove", move); window.removeEventListener("pointerup", up); dom.removeEventListener("pointerdown", down); dom.removeEventListener("wheel", wheel); sphere.material.map.dispose(); renderer.dispose(); if (mount.contains(dom)) mount.removeChild(dom); };
+    return () => { cancelAnimationFrame(raf); window.removeEventListener("resize", onResize); window.removeEventListener("pointermove", move); window.removeEventListener("pointerup", up); dom.removeEventListener("pointerdown", down); dom.removeEventListener("wheel", wheel); 
+      texture.dispose();
+      renderer.dispose(); if (mount.contains(dom)) mount.removeChild(dom); };
   }, [open, theme]);
   if (!open) return null;
   return (
@@ -174,6 +313,8 @@ export default function JourneyMap() {
   const baseRef = useRef(null), progRef = useRef(null);
   const sheetRef = useRef(null), stripRef = useRef(null);
   const stopElRefs = useRef([]), poiElRefs = useRef([]), travElRef = useRef(null);
+  const activePoiRefs = useRef([]);
+  const currentStopRef = useRef(0);
   const lenAtRef = useRef([]), totalRef = useRef(0), animRef = useRef(null), idxRef = useRef(0), travelingRef = useRef(false);
   const camRef = useRef({ tx: 0, ty: 0, s: 0 }), minSRef = useRef(1), poisRef = useRef([]), travPosRef = useRef(null);
 
@@ -186,6 +327,17 @@ export default function JourneyMap() {
   const [legend, setLegend] = useState(false);
   const [pois, setPois] = useState([]);
   const [ready, setReady] = useState(false);
+  const [selectedPoi, setSelectedPoi] = useState(null);
+
+  useEffect(() => {
+  currentStopRef.current = index;
+
+  activePoiRefs.current = [];
+
+  requestAnimationFrame(() => {
+    projectMarkers();
+  });
+}, [index]);
   const reduceRef = useRef(false);
 
   const getVW = () => wrapRef.current?.clientWidth || window.innerWidth;
@@ -194,7 +346,43 @@ export default function JourneyMap() {
   const projectMarkers = () => {
     const { tx, ty, s } = camRef.current;
     for (let i = 0; i < STOPS.length; i++) { const el = stopElRefs.current[i]; if (el) el.style.transform = `translate(${tx + s * STOPS[i].p[0]}px,${ty + s * STOPS[i].p[1]}px) translate(-50%,-50%)`; }
-    const ps = poisRef.current; for (let i = 0; i < ps.length; i++) { const el = poiElRefs.current[i]; if (el) el.style.transform = `translate(${tx + s * ps[i].x}px,${ty + s * ps[i].y}px) translate(-50%,-50%)`; }
+    const ps = poisRef.current; 
+    for (let i = 0; i < ps.length; i++) { 
+      const el = poiElRefs.current[i]; 
+      if (el) el.style.transform = `translate(${tx + s * ps[i].x}px,${ty + s * ps[i].y}px) translate(-50%,-50%)`; 
+    }
+
+const currentStop =
+  STOPS[currentStopRef.current];
+
+const currentPois =
+  STOP_POI_DETAILS[currentStop.short] ||
+  STOP_POI_DETAILS[currentStop.name] ||
+  [];
+
+for (let i = 0; i < currentPois.length; i++) {
+  const el = activePoiRefs.current[i];
+
+  if (!el) continue;
+
+  const angles = [0, 72, 144, 216, 288];
+
+  const radius = compact ? 70 : 95;
+
+  const angle =
+    (angles[i % angles.length] * Math.PI) / 180;
+
+  const ox = Math.cos(angle) * radius;
+  const oy = Math.sin(angle) * radius;
+
+  el.style.transform = `
+    translate(
+      ${tx + s * currentStop.p[0] + ox}px,
+      ${ty + s * currentStop.p[1] + oy}px
+    )
+    translate(-50%,-50%)
+  `;
+}
     const t = travPosRef.current; if (travElRef.current && t) travElRef.current.style.transform = `translate(${tx + s * t.x}px,${ty + s * t.y}px) translate(-50%,-50%)`;
   };
   const applyTransform = () => {
@@ -281,7 +469,22 @@ useEffect(() => {
       if (progRef.current) progRef.current.style.strokeDashoffset = `${total - curLen}`;
       centerOn(pt.x, pt.y);
       if (p < 1) animRef.current = requestAnimationFrame(step);
-      else { idxRef.current = target; travelingRef.current = false; setTraveling(false); setIndex(target); centerOn(STOPS[target].p[0], STOPS[target].p[1]); }
+      else {
+        idxRef.current = target;
+        currentStopRef.current = target;
+
+        travelingRef.current = false;
+
+        setTraveling(false);
+        setIndex(target);
+
+        centerOn(
+          STOPS[target].p[0],
+          STOPS[target].p[1]
+        );
+
+        projectMarkers();
+      }
     };
     animRef.current = requestAnimationFrame(step);
   };
@@ -332,7 +535,14 @@ useEffect(() => {
     window.addEventListener("pointermove", mv); window.addEventListener("pointerup", upp);
   };
 
-  const stop = STOPS[index], isFirst = index === 0, isLast = index === STOPS.length - 1;
+const stop = STOPS[index];
+
+const activePois =
+  STOP_POI_DETAILS[stop.short] ||
+  STOP_POI_DETAILS[stop.name] ||
+  [];
+  const isFirst = index === 0;
+const isLast = index === STOPS.length - 1;
   const contentH = compact ? "38vh" : 300;
 
   return (
@@ -444,8 +654,71 @@ useEffect(() => {
           const size = active ? 40 : compact ? 30 : 26;
           return (
             <button key={i} ref={(el) => (stopElRefs.current[i] = el)} onClick={() => goTo(i)} className={active ? "tot-pulse" : ""}
-              style={{ position: "absolute", left: 0, top: 0, width: size, height: size, borderRadius: 99, border: active ? "2.5px solid #fff" : visited ? "2px solid rgba(255,255,255,0.5)" : "2px solid rgba(180,200,220,0.5)", background: active ? C.red : visited ? C.gold : "rgba(18,26,38,0.95)", color: active || visited ? "#fff" : "#c2cdd9", fontWeight: 800, fontSize: active ? 15 : 12, display: "flex", alignItems: "center", justifyContent: "center", cursor: traveling ? "default" : "pointer", pointerEvents: traveling ? "none" : "auto", boxShadow: "0 4px 12px rgba(0,0,0,0.5)", zIndex: active ? 3 : 1 }}>
-              {i + 1}
+              style={{ 
+              position: "absolute", 
+              left: 0, 
+              top: 0, 
+              background: "transparent",
+              border:"none",
+              display: "flex", 
+              alignItems: "center", 
+              justifyContent: "center", 
+              cursor: traveling ? "default" : "pointer", 
+              pointerEvents: traveling ? "none" : "auto", 
+              // zIndex: active ? 3 : 1 
+            }}
+              >
+              <div
+  style={{
+    width: active ? 70 : 52,
+    height: active ? 70 : 52,
+    borderRadius: "50%",
+    overflow: "hidden",
+    border: active
+      ? "3px solid #E8313E"
+      : visited
+      ? "3px solid #F6C254"
+      : "2px solid rgba(255,255,255,.4)",
+
+    transform: active ? "scale(1.3)" : "scale(1)",
+    transition: "all .35s ease",
+    boxShadow: active
+      ? "0 0 24px rgba(232,49,62,.7)"
+      : "0 4px 12px rgba(0,0,0,.5)",
+  }}
+>
+  <img
+    src={s.image}
+    alt={s.name}
+    draggable={false}
+    style={{
+      width: "100%",
+      height: "100%",
+      objectFit: "cover",
+    }}
+  />
+</div>
+
+<div
+  style={{
+    position: "absolute",
+    bottom: -4,
+    right: -4,
+    width: 24,
+    height: 24,
+    borderRadius: "50%",
+    background: active ? C.red : visited ? C.gold : "#111827",
+    color: "#fff",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    fontWeight: 800,
+    fontSize: 12,
+    border: "2px solid white",
+  }}
+>
+  {i + 1}
+</div>
               {active && !traveling && (
                 <span style={{ position: "absolute", bottom: "calc(100% + 8px)", left: "50%", transform: "translateX(-50%)", background: C.red, color: "#fff", fontSize: 11.5, fontWeight: 700, padding: "4px 10px", borderRadius: 8, whiteSpace: "nowrap", boxShadow: "0 4px 12px rgba(0,0,0,0.5)" }}>
                   {s.short}
@@ -455,6 +728,52 @@ useEffect(() => {
             </button>
           );
         })}
+
+        {/* ACTIVE STOP POIs */}
+{activePois.map((poi, i) => {
+  const angles = [0, 72, 144, 216, 288];
+
+  const radius = compact ? 70 : 95;
+
+  const angle = (angles[i % angles.length] * Math.PI) / 180;
+
+  const x = Math.cos(angle) * radius;
+  const y = Math.sin(angle) * radius;
+
+  return (
+    <button
+      key={`${stop.short}-${poi.id}`}
+      ref={(el) => (activePoiRefs.current[i] = el)}
+      onClick={() => setSelectedPoi(poi)}
+      style={{
+        position: "absolute",
+        left: 0,
+        top: 0,
+        transform: "translate(-9999px,-9999px)",
+        width: 42,
+        height: 42,
+        borderRadius: "50%",
+        border: "2px solid white",
+        background: "rgba(0,0,0,.8)",
+        fontSize: 20,
+        cursor: "pointer",
+        zIndex: 20,
+        pointerEvents: "auto",
+      }}
+    >
+      <img
+      src={poi.icon}
+      alt=""
+      style={{
+        width: 22,
+        height: 22,
+        objectFit: "contain",
+      }}
+    />
+    </button>
+  );
+})}
+
         {/* traveller */}
         <div ref={travElRef} style={{ position: "absolute", left: 0, top: 0, opacity: traveling ? 1 : 0, transition: "opacity .25s" }}>
           <span style={{ position: "absolute", inset: -9, borderRadius: 99, border: `2px solid ${C.gold}`, animation: "totRing 1.4s infinite" }} />
@@ -559,6 +878,67 @@ const ns = clamp(
               </div>
 
               <div key={index} className="tot-fade-up">
+                <div
+  style={{
+    marginTop: 14,
+    marginBottom: 14,
+    borderRadius: 18,
+    overflow: "hidden",
+    position: "relative",
+    height: compact ? 180 : 220,
+    border: `1px solid ${C.line}`,
+  }}
+>
+  <img
+    src={stop.image}
+    alt={stop.name}
+    draggable={false}
+    style={{
+      width: "100%",
+      height: "100%",
+      objectFit: "cover",
+      display: "block",
+    }}
+  />
+
+  <div
+    style={{
+      position: "absolute",
+      inset: 0,
+      background:
+        "linear-gradient(to top, rgba(0,0,0,.75), rgba(0,0,0,.15), transparent)",
+    }}
+  />
+
+  <div
+    style={{
+      position: "absolute",
+      left: 14,
+      bottom: 14,
+      color: "#fff",
+    }}
+  >
+    <div
+      style={{
+        fontSize: 11,
+        letterSpacing: 2,
+        fontWeight: 700,
+        color: C.gold,
+      }}
+    >
+      {stop.day}
+    </div>
+
+    <div
+      style={{
+        fontSize: compact ? 20 : 24,
+        fontWeight: 800,
+      }}
+    >
+      {stop.short}
+    </div>
+  </div>
+</div>
                 <div style={{ display: "flex", alignItems: "baseline", gap: 9, flexWrap: "wrap", marginTop: 14 }}><h2 style={{ fontSize: compact ? 22 : 25, fontWeight: 800, margin: 0, letterSpacing: -0.5 }}>{stop.name}</h2><span style={tagPill}>{stop.tag}</span></div>
                 <div style={{ fontSize: 10.5, color: C.faint, fontFamily: "ui-monospace,monospace", letterSpacing: 1, marginTop: 4 }}>{stop.coord}</div>
                 <div style={{ display: "flex", gap: 8, margin: "14px 0" }}>
@@ -581,7 +961,70 @@ const ns = clamp(
         </div>
       )}
 
-      <PanoViewer open={pano} theme={stop.theme} name={stop.name} onClose={() => setPano(false)} />
+      <PanoViewer
+  open={pano}
+  theme={stop.theme}
+  image={stop.panorama}
+  name={stop.name}
+  onClose={() => setPano(false)}
+/>
+
+        {selectedPoi && (
+  <div
+    style={{
+      position: "absolute",
+      inset: 0,
+      background: "rgba(0,0,0,.75)",
+      zIndex: 200,
+      display: "flex",
+      alignItems: "center",
+      justifyContent: "center",
+      padding: 20,
+    }}
+  >
+    <div
+      style={{
+        width: "100%",
+        maxWidth: 600,
+        background: "#0f172a",
+        borderRadius: 20,
+        overflow: "hidden",
+      }}
+    >
+      <img
+        src={selectedPoi.images[0]}
+        alt=""
+        style={{
+          width: "100%",
+          height: 260,
+          objectFit: "cover",
+        }}
+      />
+
+      <div style={{ padding: 20 }}>
+        <h2>{selectedPoi.title}</h2>
+
+        <p>{selectedPoi.description}</p>
+
+        <button
+          onClick={() => setSelectedPoi(null)}
+          style={{
+            marginTop: 20,
+            padding: "10px 20px",
+            background: C.red,
+            border: "none",
+            borderRadius: 10,
+            color: "#fff",
+            cursor: "pointer",
+          }}
+        >
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+)}
+
     </div>
   );
 }
