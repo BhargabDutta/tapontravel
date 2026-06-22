@@ -16,28 +16,148 @@ const C = {
 const W = 2000, H = 2000;
 
 const STOPS = [
-  { name: "Bagdogra / NJP", short: "Bagdogra",image: "/stops/bagdogra.jpg",panorama: "/panorama/pano1.jpg", tag: "Arrival", day: "Day 1", elevation: "130 m", drive: "—", coord: "26.68°N 88.32°E", p: [320, 980], theme: "gateway", grad: ["#7FA8C9", "#E9D8B0"],
+  { name: "Bagdogra / NJP", short: "Bagdogra",image: "/stops/bagdogra.jpg",panorama: "/panorama/pano1.webp", tag: "Arrival", day: "Day 1", elevation: "130 m", drive: "—", coord: "26.68°N 88.32°E", p: [320, 980], theme: "gateway", grad: ["#7FA8C9", "#E9D8B0"],
     blurb: "The gateway to the hills. Land at Bagdogra and ride beside the Teesta as the plains fold into the first Himalayan ridges, climbing toward Gangtok.",
     highlights: ["Teesta River drive", "Namgyal Institute of Tibetology", "Do Drul Chorten", "MG Marg by night"] },
-  { name: "Gangtok", short: "Gangtok",image: "/stops/gangtok.jpg",panorama: "/panorama/gangtok-360.jpg", tag: "Sikkim · 2N", day: "Day 2", elevation: "1,650 m", drive: "4.5 h", coord: "27.33°N 88.61°E", p: [560, 600], theme: "town", grad: ["#27406B", "#D59A6E"],
+  { name: "Gangtok", short: "Gangtok",image: "/stops/gangtok.jpg",panorama: "/panorama/gangtok-360.webp", tag: "Sikkim · 2N", day: "Day 2", elevation: "1,650 m", drive: "4.5 h", coord: "27.33°N 88.61°E", p: [560, 600], theme: "town", grad: ["#27406B", "#D59A6E"],
     blurb: "Sikkim's capital, draped over a ridge. Today climbs to glacial Tsomgo Lake and Baba Mandir near the border, with an optional run up to Nathula Pass.",
     highlights: ["Tsomgo Lake", "Baba Harbhajan Singh Mandir", "Nathula Pass (permit)", "MG Marg cafés"] },
-  { name: "Namchi / Ravangla", short: "Namchi",image: "/stops/namchi.jpg",panorama: "/panorama/pano2.jpg", tag: "South Sikkim", day: "Day 3", elevation: "2,100 m", drive: "3.5 h", coord: "27.17°N 88.35°E", p: [830, 760], theme: "monastery", grad: ["#3A5E8C", "#F0C98E"],
+  { name: "Namchi / Ravangla", short: "Namchi",image: "/stops/namchi.jpg",panorama: "/panorama/pano2.webp", tag: "South Sikkim", day: "Day 3", elevation: "2,100 m", drive: "3.5 h", coord: "27.17°N 88.35°E", p: [830, 760], theme: "monastery", grad: ["#3A5E8C", "#F0C98E"],
     blurb: "Quiet South Sikkim. Wander the Temi tea slopes and the serene Buddha Park at Ravangla, then Char Dham crowned by the statue on Samdruptse Hill.",
     highlights: ["Temi Tea Garden", "Buddha Park, Ravangla", "Char Dham", "Samdruptse statue"] },
-  { name: "Kalimpong", short: "Kalimpong",image: "/stops/kalimpong.jpg",panorama: "/panorama/pano3.jpg", tag: "North Bengal · 1N", day: "Day 4–5", elevation: "1,250 m", drive: "3.5 h", coord: "27.06°N 88.47°E", p: [1130, 620], theme: "hills", grad: ["#7FA8C0", "#CFE0CE"],
+  { name: "Kalimpong", short: "Kalimpong",image: "/stops/kalimpong.jpg",panorama: "/panorama/pano3.webp", tag: "North Bengal · 1N", day: "Day 4–5", elevation: "1,250 m", drive: "3.5 h", coord: "27.06°N 88.47°E", p: [1130, 620], theme: "hills", grad: ["#7FA8C0", "#CFE0CE"],
     blurb: "A calmer hill town of monasteries and nurseries. Durpin Monastery's valley views, the climb up Deolo Hill, and one of the region's great cactus collections.",
     highlights: ["Durpin Monastery", "Deolo Hill", "Cactus Nursery", "Easy evening"] },
-  { name: "Darjeeling", short: "Darjeeling",image: "/stops/darjeeling.jpg",panorama: "/panorama/pano4.jpg", tag: "North Bengal · 2N", day: "Day 6", elevation: "2,042 m", drive: "2.5 h", coord: "27.04°N 88.26°E", p: [1240, 320], theme: "peaks", grad: ["#16335E", "#FF9E6B"],
+  { name: "Darjeeling", short: "Darjeeling",image: "/stops/darjeeling.jpg",panorama: "/panorama/pano4.webp", tag: "North Bengal · 2N", day: "Day 6", elevation: "2,042 m", drive: "2.5 h", coord: "27.04°N 88.26°E", p: [1240, 320], theme: "peaks", grad: ["#16335E", "#FF9E6B"],
     blurb: "The Queen of the Hills. Sunrise over Kanchenjunga from Tiger Hill, the heritage Toy Train through Batasia Loop, and tea on Chowrasta.",
     highlights: ["Tiger Hill sunrise", "Darjeeling Toy Train", "Batasia Loop", "Japanese Peace Pagoda"] },
-  { name: "Mirik", short: "Mirik",image: "/stops/mirik.jpg",panorama: "/panorama/pano1.jpg", tag: "Lakeside", day: "Day 7", elevation: "1,767 m", drive: "1.5 h", coord: "26.88°N 88.18°E", p: [800, 300], theme: "lake", grad: ["#5E94B8", "#CFE3DC"],
+  { name: "Mirik", short: "Mirik",image: "/stops/mirik.jpg",panorama: "/panorama/pano1.webp", tag: "Lakeside", day: "Day 7", elevation: "1,767 m", drive: "1.5 h", coord: "26.88°N 88.18°E", p: [800, 300], theme: "lake", grad: ["#5E94B8", "#CFE3DC"],
     blurb: "A pine-rimmed lake on the way down. A slow walk along the water and an optional boat ride at Mirik Lake before the descent to the plains.",
     highlights: ["Mirik Lake", "Lakeside walk", "Boating (optional)", "Tea gardens"] },
-  { name: "Bagdogra / NJP", short: "Bagdogra",image: "/stops/bagdogra.jpg", panorama: "/panorama/gangtok-360.jpg",tag: "Departure", day: "Day 7", elevation: "130 m", drive: "1.5 h", coord: "26.68°N 88.32°E", p: [430, 560], theme: "gateway", grad: ["#7FA8C9", "#E9D8B0"],
+  { name: "Bagdogra / NJP", short: "Bagdogra",image: "/stops/bagdogra.jpg", panorama: "/panorama/gangtok-360.webp",tag: "Departure", day: "Day 7", elevation: "130 m", drive: "1.5 h", coord: "26.68°N 88.32°E", p: [430, 560], theme: "gateway", grad: ["#7FA8C9", "#E9D8B0"],
     blurb: "The road folds back to the plains. Continue to Bagdogra or NJP for the onward journey — the mountains behind you, the memories packed.",
     highlights: ["Descent to plains", "Onward transfer", "Beautiful memories", "Until next time"] },
 ];
+
+const STOP_ACTIVITIES = {
+  Bagdogra: [
+    {
+      time: "11:00 AM",
+      title: "Arrival at Bagdogra Airport",
+      desc: "Meet our representative and begin your scenic drive towards Gangtok."
+    },
+    {
+      time: "01:00 PM",
+      title: "Lunch Stop",
+      desc: "Enjoy lunch while overlooking the Teesta River."
+    },
+    {
+      time: "05:00 PM",
+      title: "Check-in at Hotel",
+      desc: "Relax and freshen up after the journey."
+    }
+  ],
+
+  Gangtok: [
+    {
+      time: "08:00 AM",
+      title: "Breakfast",
+      desc: "Enjoy breakfast before departure."
+    },
+    {
+      time: "09:30 AM",
+      title: "Tsomgo Lake Excursion",
+      desc: "Visit the famous glacial lake surrounded by mountains."
+    },
+    {
+      time: "12:30 PM",
+      title: "Baba Mandir",
+      desc: "Explore the sacred shrine dedicated to Baba Harbhajan Singh."
+    },
+    {
+      time: "03:00 PM",
+      title: "Nathula Pass (Optional)",
+      desc: "Visit the Indo-China border subject to permits."
+    },
+    {
+      time: "07:00 PM",
+      title: "MG Marg Leisure Walk",
+      desc: "Explore cafes and local markets."
+    }
+  ],
+
+  Namchi: [
+    {
+      time: "09:00 AM",
+      title: "Buddha Park",
+      desc: "Visit the giant Buddha statue and gardens."
+    },
+    {
+      time: "11:30 AM",
+      title: "Temi Tea Garden",
+      desc: "Walk through Sikkim's famous tea estate."
+    },
+    {
+      time: "03:00 PM",
+      title: "Char Dham",
+      desc: "Explore replicas of major Hindu pilgrimage sites."
+    }
+  ],
+
+  Kalimpong: [
+    {
+      time: "09:00 AM",
+      title: "Deolo Hill",
+      desc: "Enjoy panoramic views of the valley."
+    },
+    {
+      time: "11:00 AM",
+      title: "Durpin Monastery",
+      desc: "Visit one of Kalimpong's oldest monasteries."
+    },
+    {
+      time: "04:00 PM",
+      title: "Local Market Walk",
+      desc: "Explore handicrafts and local produce."
+    }
+  ],
+
+  Darjeeling: [
+    {
+      time: "04:00 AM",
+      title: "Tiger Hill Sunrise",
+      desc: "Witness sunrise over Kanchenjunga."
+    },
+    {
+      time: "09:00 AM",
+      title: "Toy Train Ride",
+      desc: "Experience the UNESCO heritage railway."
+    },
+    {
+      time: "12:00 PM",
+      title: "Batasia Loop",
+      desc: "Visit the famous spiral railway loop."
+    },
+    {
+      time: "04:00 PM",
+      title: "Chowrasta",
+      desc: "Tea and leisure walk."
+    }
+  ],
+
+  Mirik: [
+    {
+      time: "10:00 AM",
+      title: "Mirik Lake",
+      desc: "Relax beside the lake and enjoy boating."
+    },
+    {
+      time: "01:00 PM",
+      title: "Lunch Stop",
+      desc: "Enjoy local food before heading to Bagdogra."
+    }
+  ]
+};
 
 const POI_DEFS = [
   { f: 0.10, type: "view", label: "Teesta viewpoint" }, { f: 0.26, type: "stay", label: "Gangtok stay" },
@@ -254,31 +374,66 @@ const cam = new THREE.PerspectiveCamera(
   1000
 );
 
-const texture = new THREE.TextureLoader().load(image);
+const textureLoader = new THREE.TextureLoader();
 
 const sphere = new THREE.Mesh(
-  new THREE.SphereGeometry(60, 64, 44),
+  new THREE.SphereGeometry(500, 128, 64),
   new THREE.MeshBasicMaterial({
     side: THREE.BackSide,
-    map: texture
   })
 );
 
 scene.add(sphere);
+
+textureLoader.load(
+  image,
+  (texture) => {
+    texture.colorSpace = THREE.SRGBColorSpace;
+
+    sphere.material.map = texture;
+    sphere.material.needsUpdate = true;
+
+    console.log("Panorama loaded:", image);
+  },
+  undefined,
+  (err) => {
+    console.error("Failed loading panorama:", image, err);
+  }
+);
     
 
     let lon = -18, lat = 4, dragging = false, lx = 0, ly = 0; const t = new THREE.Vector3(); const dom = renderer.domElement;
     const down = (e) => { dragging = true; lx = e.clientX; ly = e.clientY; dom.style.cursor = "grabbing"; };
     const move = (e) => { if (!dragging) return; lon -= (e.clientX - lx) * 0.12; lat = Math.max(-78, Math.min(78, lat + (e.clientY - ly) * 0.12)); lx = e.clientX; ly = e.clientY; };
     const up = () => { dragging = false; dom.style.cursor = "grab"; };
-    const wheel = (e) => { e.preventDefault(); fovRef.current = Math.max(40, Math.min(92, fovRef.current + e.deltaY * 0.04)); };
+    const wheel = (e) => { e.preventDefault(); fovRef.current = Math.max(40, Math.min(120, fovRef.current + e.deltaY * 0.04)); };
     dom.addEventListener("pointerdown", down); window.addEventListener("pointermove", move); window.addEventListener("pointerup", up); dom.addEventListener("wheel", wheel, { passive: false });
     let raf; const loop = () => { raf = requestAnimationFrame(loop); if (!dragging && !reduce) lon += 0.03; cam.fov = fovRef.current; cam.updateProjectionMatrix(); const phi = THREE.MathUtils.degToRad(90 - lat), th = THREE.MathUtils.degToRad(lon); t.set(Math.sin(phi) * Math.cos(th), Math.cos(phi), Math.sin(phi) * Math.sin(th)); cam.lookAt(t); renderer.render(scene, cam); }; loop();
-    const onResize = () => { renderer.setSize(mount.clientWidth, mount.clientHeight); cam.aspect = mount.clientWidth / mount.clientHeight; cam.updateProjectionMatrix(); }; window.addEventListener("resize", onResize); mount._api = { zoom: (d) => { fovRef.current = Math.max(40, Math.min(92, fovRef.current + d)); } };
-    return () => { cancelAnimationFrame(raf); window.removeEventListener("resize", onResize); window.removeEventListener("pointermove", move); window.removeEventListener("pointerup", up); dom.removeEventListener("pointerdown", down); dom.removeEventListener("wheel", wheel); 
-      texture.dispose();
-      renderer.dispose(); if (mount.contains(dom)) mount.removeChild(dom); };
-  }, [open, theme]);
+    const onResize = () => { renderer.setSize(mount.clientWidth, mount.clientHeight); cam.aspect = mount.clientWidth / mount.clientHeight; cam.updateProjectionMatrix(); }; window.addEventListener("resize", onResize); mount._api = { zoom: (d) => { fovRef.current = Math.max(40, Math.min(120, fovRef.current + d)); } };
+    return () => {
+  cancelAnimationFrame(raf);
+
+  window.removeEventListener("resize", onResize);
+  window.removeEventListener("pointermove", move);
+  window.removeEventListener("pointerup", up);
+
+  dom.removeEventListener("pointerdown", down);
+  dom.removeEventListener("wheel", wheel);
+
+  if (sphere.material.map) {
+    sphere.material.map.dispose();
+  }
+
+  sphere.geometry.dispose();
+  sphere.material.dispose();
+
+  renderer.dispose();
+
+  if (mount.contains(dom)) {
+    mount.removeChild(dom);
+  }
+};
+  }, [open, image, theme]);
   if (!open) return null;
   return (
     <div style={{ position: "absolute", inset: 0, zIndex: 70, background: "#000" }} className="tot-fade">
@@ -554,9 +709,17 @@ const activePois =
   STOP_POI_DETAILS[stop.short] ||
   STOP_POI_DETAILS[stop.name] ||
   [];
+
+  const activities =
+  STOP_ACTIVITIES[stop.short] ||
+  STOP_ACTIVITIES[stop.name] ||
+  [];
+
   const isFirst = index === 0;
 const isLast = index === STOPS.length - 1;
-  const contentH = compact ? "38vh" : 300;
+const contentH = compact
+  ? "calc(100dvh - 260px)"
+  : 300;
 
   return (
     <div ref={wrapRef} style={{ position: "relative", width: "100%", height: "100dvh", minHeight: 560, overflow: "hidden", background: C.bg0, fontFamily: "'SF Pro Display',-apple-system,system-ui,'Segoe UI',sans-serif", color: C.text, userSelect: "none", WebkitTapHighlightColor: "transparent", touchAction: "none" }}>
@@ -861,7 +1024,19 @@ const ns = clamp(
 
       {/* DETAIL SHEET (fixed height, pinned buttons, stays where you left it) */}
       {!pano && (
-        <div ref={sheetRef} style={{ position: "absolute", zIndex: 30, ...(compact ? { left: 0, right: 0, bottom: 0, transform: sheetOpen ? "translateY(0)" : "translateY(calc(100% - 180px))", transition: "transform .5s cubic-bezier(.4,0,.1,1)", animation: "totFade .5s both" } : { left: 20, bottom: 22, width: 396, animation: "totFadeUp .6s both" }) }}>
+        <div ref={sheetRef} 
+        style={{ position: "absolute", 
+        zIndex: 30, 
+        overflowY :"auto", 
+        ...(compact ? { 
+          left: 0, right: 0, bottom: 0, transform: sheetOpen ? "translateY(0)" : "translateY(calc(100% - 180px))", 
+          transition: "transform .5s cubic-bezier(.4,0,.1,1)", 
+          animation: "totFade .5s both" 
+          } : { 
+          left: 20, bottom: 22, 
+          width: 396, 
+          animation: "totFadeUp .6s both" 
+          }) }}>
           <div style={{ background: C.glass, backdropFilter: "blur(22px)", WebkitBackdropFilter: "blur(22px)", border: `1px solid ${C.line}`, borderRadius: compact ? "24px 24px 0 0" : 24, boxShadow: "0 -12px 50px rgba(0,0,0,0.55)", overflow: "hidden", display: "flex", flexDirection: "column" }}>
             {compact && (
               <div onPointerDown={onHandleDown} style={{ padding: "10px 16px 8px", cursor: "grab", touchAction: "none", flexShrink: 0 }}>
@@ -875,7 +1050,7 @@ const ns = clamp(
             )}
 
             {/* scrolling content — FIXED height so nothing shifts */}
-            <div className="tot-scroll" style={{ height: contentH, overflowY: "auto", overflowY: "hidden", maxWidth: "100%", padding: compact ? "0 18px" : "20px 20px 0" }}>
+            <div className="tot-scroll" style={{ height: contentH, overflowY: "auto", maxWidth: "100%", padding: compact ? "0 18px" : "20px 20px 0" }}>
               <div ref={stripRef} className="tot-scroll" style={{ display: "flex", overflowX: "auto", padding: "6px 2px 14px", margin: compact ? "0 -4px" : 0, borderBottom: `1px solid ${C.line}` }}>
                 {STOPS.map((s, i) => {
                   const active = i === index, visited = i < index;
@@ -891,67 +1066,67 @@ const ns = clamp(
               </div>
 
               <div key={index} className="tot-fade-up">
-                <div
-  style={{
-    marginTop: 14,
-    marginBottom: 14,
-    borderRadius: 18,
-    overflow: "hidden",
-    position: "relative",
-    height: compact ? 180 : 220,
-    border: `1px solid ${C.line}`,
-  }}
->
-  <img
-    src={stop.image}
-    alt={stop.name}
-    draggable={false}
-    style={{
-      width: "100%",
-      height: "100%",
-      objectFit: "cover",
-      display: "block",
-    }}
-  />
+                  <div
+                  style={{
+                    marginTop: 14,
+                    marginBottom: 14,
+                    borderRadius: 18,
+                    overflow: "hidden",
+                    position: "relative",
+                    height: compact ? 180 : 220,
+                    border: `1px solid ${C.line}`,
+                  }}
+                >
+                  <img
+                    src={stop.image}
+                    alt={stop.name}
+                    draggable={false}
+                    style={{
+                      width: "100%",
+                      height: "100%",
+                      objectFit: "cover",
+                      display: "block",
+                    }}
+                  />
 
-  <div
-    style={{
-      position: "absolute",
-      inset: 0,
-      background:
-        "linear-gradient(to top, rgba(0,0,0,.75), rgba(0,0,0,.15), transparent)",
-    }}
-  />
+                  <div
+                    style={{
+                      position: "absolute",
+                      inset: 0,
+                      background:
+                        "linear-gradient(to top, rgba(0,0,0,.75), rgba(0,0,0,.15), transparent)",
+                    }}
+                  />
 
-  <div
-    style={{
-      position: "absolute",
-      left: 14,
-      bottom: 14,
-      color: "#fff",
-    }}
-  >
-    <div
-      style={{
-        fontSize: 11,
-        letterSpacing: 2,
-        fontWeight: 700,
-        color: C.gold,
-      }}
-    >
-      {stop.day}
-    </div>
+                  <div
+                    style={{
+                      position: "absolute",
+                      left: 14,
+                      bottom: 14,
+                      color: "#fff",
+                    }}
+                  >
+                    <div
+                      style={{
+                        fontSize: 11,
+                        letterSpacing: 2,
+                        fontWeight: 700,
+                        color: C.gold,
+                      }}
+                    >
+                      {stop.day}
+                    </div>
 
-    <div
-      style={{
-        fontSize: compact ? 20 : 24,
-        fontWeight: 800,
-      }}
-    >
-      {stop.short}
-    </div>
-  </div>
-</div>
+                    <div
+                      style={{
+                        fontSize: compact ? 20 : 24,
+                        fontWeight: 800,
+                      }}
+                    >
+                      {stop.short}
+                    </div>
+                  </div>
+                </div>
                 <div style={{ display: "flex", alignItems: "baseline", gap: 9, flexWrap: "wrap", marginTop: 14 }}><h2 style={{ fontSize: compact ? 22 : 25, fontWeight: 800, margin: 0, letterSpacing: -0.5 }}>{stop.name}</h2><span style={tagPill}>{stop.tag}</span></div>
                 <div style={{ fontSize: 10.5, color: C.faint, fontFamily: "ui-monospace,monospace", letterSpacing: 1, marginTop: 4 }}>{stop.coord}</div>
                 <div style={{ display: "flex", gap: 8, margin: "14px 0" }}>
@@ -961,6 +1136,78 @@ const ns = clamp(
                 </div>
                 <p style={{ color: "#C6D0DC", fontSize: 13.5, lineHeight: 1.55, margin: "0 0 13px" }}>{stop.blurb}</p>
                 <div style={{ display: "flex", flexWrap: "wrap", gap: 6, paddingBottom: 14 }}>{stop.highlights.map((h) => <span key={h} style={chip}>{h}</span>)}</div>
+                <div style={{ marginTop: 20, paddingBottom: 30 }}>
+                  <div
+                    style={{
+                      fontSize: 12,
+                      letterSpacing: 2,
+                      color: C.gold,
+                      fontWeight: 700,
+                      marginBottom: 14,
+                    }}
+                  >
+                    TODAY'S ACTIVITIES
+                  </div>
+
+                  {activities.map((item, idx) => (
+                    <div
+                      key={idx}
+                      style={{
+                        display: "flex",
+                        gap: 12,
+                        marginBottom: 18,
+                        position: "relative",
+                      }}
+                    >
+                      {/* timeline */}
+                      <div
+                        style={{
+                          width: 70,
+                          flexShrink: 0,
+                        }}
+                      >
+                        <div
+                          style={{
+                            color: C.gold,
+                            fontSize: 12,
+                            fontWeight: 700,
+                          }}
+                        >
+                          {item.time}
+                        </div>
+                      </div>
+
+                      <div
+                        style={{
+                          flex: 1,
+                          background: "rgba(255,255,255,.04)",
+                          border: `1px solid ${C.line}`,
+                          borderRadius: 14,
+                          padding: 12,
+                        }}
+                      >
+                        <div
+                          style={{
+                            fontWeight: 700,
+                            marginBottom: 4,
+                          }}
+                        >
+                          {item.title}
+                        </div>
+
+                        <div
+                          style={{
+                            color: C.muted,
+                            fontSize: 13,
+                            lineHeight: 1.5,
+                          }}
+                        >
+                          {item.desc}
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
 
