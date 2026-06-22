@@ -330,14 +330,23 @@ export default function JourneyMap() {
   const [selectedPoi, setSelectedPoi] = useState(null);
 
   useEffect(() => {
+  const timer = setTimeout(() => {
+    projectMarkers();
+  }, 50);
+
+  return () => clearTimeout(timer);
+}, [index, compact]);
+
+useLayoutEffect(() => {
   currentStopRef.current = index;
 
-  activePoiRefs.current = [];
-
   requestAnimationFrame(() => {
-    projectMarkers();
+    requestAnimationFrame(() => {
+      projectMarkers();
+    });
   });
 }, [index]);
+
   const reduceRef = useRef(false);
 
   const getVW = () => wrapRef.current?.clientWidth || window.innerWidth;
@@ -476,14 +485,18 @@ useEffect(() => {
         travelingRef.current = false;
 
         setTraveling(false);
-        setIndex(target);
+setIndex(target);
 
-        centerOn(
-          STOPS[target].p[0],
-          STOPS[target].p[1]
-        );
+centerOn(
+  STOPS[target].p[0],
+  STOPS[target].p[1]
+);
 
-        projectMarkers();
+requestAnimationFrame(() => {
+  requestAnimationFrame(() => {
+    projectMarkers();
+  });
+});
       }
     };
     animRef.current = requestAnimationFrame(step);
